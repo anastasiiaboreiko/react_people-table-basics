@@ -58,7 +58,12 @@ export const PersonLink: React.FC<Props> = ({ person }) => {
         {!hasFather ? (
           '-'
         ) : father ? (
-          <Link to={`/people/${father.slug}`}>{person.fatherName}</Link>
+          <Link
+            to={`/people/${father.slug}`}
+            className={cn(father.sex === 'f' && 'has-text-danger')}
+          >
+            {person.fatherName}
+          </Link>
         ) : (
           <span>{person.fatherName}</span>
         )}
